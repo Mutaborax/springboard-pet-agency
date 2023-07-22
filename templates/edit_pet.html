@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edit Pet</title>
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container my-4">
+      <h1>Edit Pet: {{ pet.pet_name }}</h1>
+      <p>Species: {{ pet.pet_species }}</p>
+      {% if pet.pet_url %}
+      <img
+        class="img-fluid rounded-circle my-2"
+        src="{{ pet.pet_url }}"
+        alt="{{ pet.pet_name }}"
+      />
+      {% endif %} {% if pet.pet_age %}
+      <p>Age: {{ pet.pet_age }}</p>
+      {% endif %}
+
+      <form method="POST">
+        {{ form.hidden_tag() }}
+        <div class="form-group">
+          {{ form.photo_url.label(class="form-label") }} {{
+          form.photo_url(class="form-control") }}
+        </div>
+        <div class="form-group">
+          {{ form.notes.label(class="form-label") }} {{
+          form.notes(class="form-control") }}
+        </div>
+        <div class="form-group form-check">
+          {{ form.available(class="form-check-input") }} {{
+          form.available.label(class="form-check-label") }}
+        </div>
+        <div class="form-group">
+          <input type="submit" class="btn btn-primary" value="Save Changes" />
+        </div>
+      </form>
+    </div>
+  </body>
+</html>

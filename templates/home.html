@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pets Adoption Store</title>
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="my-4 text-center">Adoption for Pets Service</h1>
+      <div class="row">
+        {% for pet in animals %}
+        <div class="col-4 mb-4">
+          <div class="card">
+            {% if pet.pet_url %}
+            <img
+              src="{{ pet.pet_url }}"
+              class="card-img-top"
+              alt="{{ pet.pet_name }}"
+            />
+            {% endif %}
+            <div class="card-body">
+              <h5 class="card-title">{{ pet.pet_name }}</h5>
+              {% if pet.pet_available %}
+              <p class="card-text"><strong>Available</strong></p>
+              {% endif %}
+              <a href="#" class="btn btn-primary">Adopt me</a>
+
+              <!-- View/Edit button -->
+              <a
+                href="{{ url_for('edit_pet', pet_id=pet.pet_code) }}"
+                class="btn btn-primary"
+                >View/Edit</a
+              >
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+    <!-- Add pet button -->
+    <div class="text-center mb-3">
+      <a href="/add" class="btn btn-primary">Add Pet</a>
+    </div>
+  </body>
+</html>

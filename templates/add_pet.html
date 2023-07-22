@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add a Pet</title>
+    <!-- Include Bootstrap CSS -->
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="my-4">Add a Pet</h1>
+      <form method="POST">
+        {{ form.hidden_tag() }}
+        <div class="form-group">
+          {{ form.name.label(class="form-label") }} {{
+          form.name(class="form-control", placeholder="Pet's name") }}
+        </div>
+        <div class="form-group">
+          {{ form.species.label(class="form-label") }} {{
+          form.species(class="form-control", placeholder="Species") }}
+        </div>
+        <div class="form-group">
+          {{ form.photo_url.label(class="form-label") }} {{
+          form.photo_url(class="form-control", placeholder="Photo URL") }}
+        </div>
+        <div class="form-group">
+          {{ form.age.label(class="form-label") }} {{
+          form.age(class="form-control", placeholder="Age") }}
+        </div>
+        <div class="form-group">
+          {{ form.notes.label(class="form-label") }} {{
+          form.notes(class="form-control", placeholder="Notes") }}
+        </div>
+        <button type="submit" class="btn btn-primary">Add Pet</button>
+      </form>
+    </div>
+  </body>
+</html>
